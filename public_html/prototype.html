@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="shortcut icon" href="Retro.png"/>
+        <title>Prototype</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h3>Figure 1: Object/Prototype Relationships</h3>
+        <img src="img/prototype.png" />
+    </body>
+    <script src="js/prototype/Customer.js" type="text/javascript"></script>
+    <script src="js/prototype/Employee.js" type="text/javascript"></script>
+    <script src="js/prototype/Mime.js" type="text/javascript"></script>
+    <script src="js/prototype/Person.js" type="text/javascript"></script>
+
+    <script>
+        Customer.prototype = new Person();
+        Employee.prototype = new Person();
+        Mime.prototype = new Person();
+
+        var bob = new Employee('Bob', 'Builder');
+        var joe = new Customer('Joe');
+        var rg = new Employee('Red Green', 'Handyman');
+        var mike = new Customer('Mike');
+        var mime = new Mime('Mime');
+
+        console.log("bob>>> ", bob);
+        console.log("joe>>> ", joe);
+        console.log("rg>>> ", rg);
+        console.log("mike>>> ", mike);
+        console.log("mime>>> ", mime);
+
+        bob.greet();
+        joe.greet();
+        rg.greet();
+        mike.greet();
+        mime.greet();
+
+        /**TESTE**/
+        Person.prototype = new Employee();
+        var teste = new Person("Eu", "robô");
+        teste.greet();
+        console.log("teste>>> ", teste);
+    </script>
+
+</html>
